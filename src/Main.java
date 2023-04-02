@@ -59,6 +59,7 @@ public class Main {
         sc = new Scanner(System.in);
         if(sc.next().toLowerCase().equals("yes")) main(null);
 
+
         System.out.println("Bye gaynigger!");
     }
 }
