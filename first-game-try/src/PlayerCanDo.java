@@ -47,10 +47,11 @@ public class PlayerCanDo {
             addToBackpack(thingadd);
 
         } else {
-            if(!Player.invetory[counter].equals(" ")) {
-                System.out.println("a");
+            try {
+                Player.invetory[arrayIndex(" ", Player.invetory)] = thingadd;
+            }catch(Exception e){
+                System.out.println("Nincs üre hely az inventoridban");
             }
-            Player.invetory[counter] = thingadd;
         }
 
     }
@@ -106,6 +107,11 @@ public class PlayerCanDo {
 
     public static <numBefore> void storeNumBefor(int eventNum){
         numBefore.add(eventNum);
+    }
+
+    public static int randomNumber(int howMany, boolean isFight){
+        int random = (int) Math.floor((Math.random()*howMany+(isFight ? +30: + 0)));
+        return random;
     }
 
     public static void dayhunger(){

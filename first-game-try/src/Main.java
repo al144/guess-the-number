@@ -77,7 +77,7 @@ public class Main {
         if(random == 30){
             System.out.println("fight");
             PlayerCanDo.readNext();
-            PlayerCanDo.removeItem("Kés");
+            //PlayerCanDo.removeItem("Kés");
             if(!PlayerCanDo.next.equals("n")) {
                 System.out.println("fight 1");
                 return;
@@ -88,7 +88,7 @@ public class Main {
         if(random == 31) {
             System.out.println("fight 2");
             PlayerCanDo.readNext();
-            PlayerCanDo.removeItem("Kés");
+            //PlayerCanDo.removeItem("Kés");
             if(!PlayerCanDo.next.equals("n")) {
                 System.out.println("fight 2");
                 return;
@@ -99,7 +99,7 @@ public class Main {
         if(random == 32) {
             System.out.println("fight 3");
             PlayerCanDo.readNext();
-            PlayerCanDo.removeItem("Kés");
+            //PlayerCanDo.removeItem("Kés");
             if(!PlayerCanDo.next.equals("n")) {
                 System.out.println("Fight 3");
                 return;
@@ -110,18 +110,14 @@ public class Main {
     }
 
     public static int randomDecider(){
-        if(/*PlayerCanDo.inventoryChecker("Kés") &&*/ Player.days%4 == 0){
-            int randrand = (int) Math.floor(Math.random()*3);
-            if(randrand == 1){
-                int fightEventrandom = (int) Math.floor(Math.random()*3+30);
-                return fightEventrandom;
-            }else {
-                System.out.println("nem adta be");
-                return 0;
+        if(/*PlayerCanDo.inventoryChecker("Kés") &&*/ Player.days%4 == 0) {
+            int randrand = PlayerCanDo.randomNumber(3, false);
+            if(randrand != 1) {
+                return PlayerCanDo.randomNumber(10, false);
             }
+            return PlayerCanDo.randomNumber(3, true);
         }else {
-            int random = (int) Math.floor((Math.random()*10));
-            return 0;
+            return PlayerCanDo.randomNumber(10, false);
         }
     }
 
